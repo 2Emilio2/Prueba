@@ -80,12 +80,11 @@ experimentos o conocimiento propio.
 ######################
 
 #st.sidebar.header('Enter DNA sequence')
-st.header('Enter DNA sequence')
+st.header('Introduzca secuencia de ADN')
 
-sequence_input = ">DNA Query 2\nGAACACGTGGAGGCAAACAGGAAGGTGAAGAAGAACTTATCCTATCAGGACGGAAGGTCCTGTGCTCGGG\nATCTTCCAGACGTCGCGACTCTAAATTGCCCCCTCTGAGGTCAAGGAACACAAGATGGTTTTGGAAATGC\nTGAACCCGATACATTATAACATCACCAGCATCGTGCCTGAAGCCATGCCTGCTGCCACCATGCCAGTCCT"
-
+sequence_input = "Ejemplo: GAACACGTGGAGGCAAACAGGAAGGTGAAGAAGAACTTATCCTATCAGGACGGAAGGTCCTGTGCTCGGGATCTTCCAGACGTCGCGACTCTAAATTGCCCCCTCTGAGGTCAAGGAACACAAGATGGTTTTGGAAATGCTGAACCCGATACATTATAACATCACCAGCATCGTGCCTGAAGCCATGCCTGCTGCCACCATGCCAGTCCT"
 #sequence = st.sidebar.text_area("Sequence input", sequence_input, height=250)
-sequence = st.text_area("Sequence input", sequence_input, height=250)
+sequence = st.text_area("Secuencia", sequence_input, height=100)
 sequence = sequence.splitlines()
 sequence = sequence[1:] # Skips the sequence name (first line)
 sequence = ''.join(sequence) # Concatenates list to string
@@ -95,11 +94,11 @@ st.write("""
 """)
 
 ## Prints the input DNA sequence
-st.header('INPUT (DNA Query)')
+st.header('secuencia introducida')
 sequence
 
 ## DNA nucleotide count
-st.header('OUTPUT (DNA nucleotide composition)')
+st.header('composicion de nucleotidos')
 
 
 # 1. Print dictionary
