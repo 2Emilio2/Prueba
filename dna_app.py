@@ -82,9 +82,8 @@ experimentos o conocimiento propio.
 #st.sidebar.header('Enter DNA sequence')
 st.header('Introduzca secuencia de ADN')
 
-sequence_input = "Ejemplo: GAACACGTGGAGGCAAACAGGAAGGTGAAGAAGAACTTATCCTATCAGGACGGAAGGTCCTGTGCTCGGGATCTTCCAGACGTCGCGACTCTAAATTGCCCCCTCTGAGGTCAAGGAACACAAGATGGTTTTGGAAATGCTGAACCCGATACATTATAACATCACCAGCATCGTGCCTGAAGCCATGCCTGCTGCCACCATGCCAGTCCT"
 #sequence = st.sidebar.text_area("Sequence input", sequence_input, height=250)
-sequence = st.text_area("Secuencia", sequence_input, height=100)
+sequence = st.text_area("Secuencia", height=100)
 sequence = sequence.splitlines()
 sequence = sequence[1:] # Skips the sequence name (first line)
 sequence = ''.join(sequence) # Concatenates list to string
