@@ -13,6 +13,7 @@ import streamlit as st
 import numpy as np
 import altair as alt
 from PIL import Image
+import matplotlib.pyplot as plt
 
 ######################
 # Page Title
@@ -161,8 +162,6 @@ st.write(p)
 
 ### 5. Display Pie Chart using Altair
 st.subheader('Gráfica Circular')
-
-import matplotlib.pyplot as plt
 
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
 labels = 'A', 'G', 'T', 'C'
