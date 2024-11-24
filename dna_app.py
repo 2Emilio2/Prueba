@@ -10,6 +10,7 @@
 
 import pandas as pd
 import streamlit as st
+import numpy as np
 import altair as alt
 from PIL import Image
 
@@ -208,14 +209,11 @@ p = p.properties(
     )
 )
 
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["A", "T", "G", "C"])
+
+st.line_chart(chart_data)
+
 st.header('Contact Information')
 st.markdown('**Name:** Dipraj Howlader')
 st.markdown('- **Email:** dip07.raz@gmail.com')
 st.markdown('- **Phone:** +8801710023365')
-
-
-# In[ ]:
-
-
-
-
