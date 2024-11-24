@@ -17,6 +17,7 @@ from PIL import Image
 # Page Title
 ######################
 
+# Cuenta de Nucléotidos en ADN
 image = Image.open('Nucleotidos_ADN.png')
 
 st.image(image, use_column_width=True)
@@ -67,7 +68,6 @@ table.dataframe th {
 """, unsafe_allow_html=True)
 
 st.write("""
-# Cuenta de Nucléotidos en ADN
 Con esta aplicación se pueden obtener datos detalladamente de la composición de nucleotidos de la cadena de ADN que desees conocer.
 Simplemente con escribir una pequeña secuencia de la cadena que gustes podrás conseguir datos para tus investigaciones, proyectos,
 experimentos o conocimiento propio.
