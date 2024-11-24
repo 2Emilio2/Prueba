@@ -162,52 +162,18 @@ st.write(p)
 ### 5. Display Pie Chart using Altair
 st.subheader('Gráfica Circular')
 
-import altair as alt
+import matplotlib.pyplot as plt
 
-# Reshape the data for animated pie chart
-df_pivot = df.melt('nucleotide', var_name='metric', value_name='value')
+labels = 'A', 'G', 'T', 'C'
+sizes = [15, 30, 45, 10]
+explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'G')
 
-# Create animated pie chart
-animated_pie_chart = alt.Chart(df_pivot).mark_arc().encode(
-    alt.X('value:Q', stack='zero'),
-    color='nucleotide:N',
-    tooltip=['nucleotide', 'metric', 'value']
-).properties(
-    width=500,
-    height=400
-).transform_joinaggregate(
-    total='sum(value)',
-    groupby=['nucleotide']
-).transform_calculate(
-    percentage='datum.value / datum.total'
-).encode(
-    text=alt.Text('percentage:Q', format='.1%')
-).configure_mark(
-    opacity=0.8
-)
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-# Adjust properties of the animated pie chart
-animated_pie_chart = animated_pie_chart.properties(
-    width=300,
-    height=300
-)
-
-# Display the animated pie chart
-st.altair_chart(animated_pie_chart, use_container_width=True)
-
-p = alt.Chart(df).mark_bar().encode(
-    x='nucleotide',
-    y='count',
-    column='nucleotide'
-)
-
-p = p.properties(
-    width=alt.Step(80),  # controls width of bar
-    height=alt.Step(40),  # controls height of bar
-    column=alt.Column(
-        spacing=10  # controls spacing between grouped bars
-    )
-)
+st.pyplot(fig1)
 
 st.header('Contact Information')
 st.markdown('**Name:** Dipraj Howlader')
