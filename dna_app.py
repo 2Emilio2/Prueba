@@ -162,24 +162,19 @@ st.write(p)
 ### 5. Display Pie Chart using Altair
 st.subheader('Gráfica Circular')
 
-import numpy as np
+import matplotlib.pyplot as plt
 
-# Add histogram data
-x1 = np.random.randn(200) - 2
-x2 = np.random.randn(200)
-x3 = np.random.randn(200) + 2
+# Pie chart, where the slices will be ordered and plotted counter-clockwise:
+labels = 'A', 'G', 'T', 'C'
+sizes = [seq.count('A'), seq.count('G'), seq.count('T'), seq.count('C')]
+explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'G')
 
-# Group data together
-hist_data = [x1, x2, x3]
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-group_labels = ['Group 1', 'Group 2', 'Group 3']
-
-# Create distplot with custom bin_size
-fig = ff.create_distplot(
-        hist_data, group_labels, bin_size=[.1, .25, .5])
-
-# Plot!
-st.plotly_chart(fig, use_container_width=True)
+st.pyplot(fig1)
 
 st.header('Contact Information')
 st.markdown('**Name:** Dipraj Howlader')
