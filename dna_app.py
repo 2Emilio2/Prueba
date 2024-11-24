@@ -17,7 +17,7 @@ from PIL import Image
 # Page Title
 ######################
 
-# Cuenta de Nucléotidos en ADN
+st.write("Cuenta de Nucléotidos en ADN")
 image = Image.open('Nucleotidos_ADN.png')
 
 st.image(image, use_column_width=True)
