@@ -17,7 +17,6 @@ from PIL import Image
 # Page Title
 ######################
 
-st.write("Cuenta de Nucléotidos en ADN")
 image = Image.open('Nucleotidos_ADN.png')
 
 st.image(image, use_column_width=True)
@@ -68,6 +67,7 @@ table.dataframe th {
 """, unsafe_allow_html=True)
 
 st.write("""
+# Cuenta de Nucléotidos en ADN
 Con esta aplicación se pueden obtener datos detalladamente de la composición de nucleotidos de la cadena de ADN que desees conocer.
 Simplemente con escribir una pequeña secuencia de la cadena que gustes podrás conseguir datos para tus investigaciones, proyectos,
 experimentos o conocimiento propio.
@@ -126,11 +126,11 @@ with col2:
 
 with col3:
     # 3. Display DataFrame
-    st.subheader('3. Display DataFrame')
+    st.subheader('Tabla')
     df = pd.DataFrame.from_dict(X, orient='index')
-    df = df.rename({0: 'count'}, axis='columns')
+    df = df.rename({0: 'conteo'}, axis='columns')
     df.reset_index(inplace=True)
-    df = df.rename(columns={'index': 'nucleotide'})
+    df = df.rename(columns={'index': 'nucleotido'})
     st.write(df)
 
 # Add CSS styling for subheaders
@@ -147,7 +147,7 @@ st.markdown(
 )
 
 ### 4. Display Bar Chart using Altair
-st.subheader('4. Display Bar chart')
+st.subheader('Grafica de barras')
 p = alt.Chart(df).mark_bar().encode(
     x='nucleotide',
     y='count'
